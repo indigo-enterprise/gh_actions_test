@@ -68,7 +68,7 @@ jobs:
         fetch-depth: 0
 
     - name: Muestra el contenido de la carpeta
-      run: ls -la
+      run: ls
 
     # Install the .NET Core workload
     - name: Install .NET Core
