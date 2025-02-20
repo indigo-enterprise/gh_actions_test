@@ -50,7 +50,7 @@ namespace Indigo.Core.PackageTest
             string result = value.AsString();
 
             // Assert
-            Assert.Equal("123,45", result);
+            Assert.Equal("123.45", result);
         }
     }
 }
