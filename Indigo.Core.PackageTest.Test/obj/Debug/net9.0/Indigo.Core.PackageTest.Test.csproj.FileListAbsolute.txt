@@ -100,3 +100,4 @@ D:\Infinity\gh_actions_test\Indigo.Core.PackageTest.Test\obj\Debug\net9.0\refint
 D:\Infinity\gh_actions_test\Indigo.Core.PackageTest.Test\obj\Debug\net9.0\Indigo.Core.PackageTest.Test.pdb
 D:\Infinity\gh_actions_test\Indigo.Core.PackageTest.Test\obj\Debug\net9.0\Indigo.Core.PackageTest.Test.genruntimeconfig.cache
 D:\Infinity\gh_actions_test\Indigo.Core.PackageTest.Test\obj\Debug\net9.0\ref\Indigo.Core.PackageTest.Test.dll
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest.Test\obj\Debug\net9.0\Indigo.Core.PackageTest.Test.sourcelink.json

@@ -9,3 +9,4 @@ D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Debug\net9.0\Indigo.Core
 D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Debug\net9.0\refint\Indigo.Core.PackageTest.dll
 D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Debug\net9.0\Indigo.Core.PackageTest.pdb
 D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Debug\net9.0\ref\Indigo.Core.PackageTest.dll
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Debug\net9.0\Indigo.Core.PackageTest.sourcelink.json

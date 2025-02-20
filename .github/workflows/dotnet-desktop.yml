@@ -67,6 +67,9 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Muestra el contenido de la carpeta
+      run: ls -la
+
     # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
@@ -79,7 +82,7 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test
+      run: dotnet test Indigo.Core.PackageTest.Test
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
