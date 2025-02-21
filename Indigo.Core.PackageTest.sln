@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Core.PackageTest", "Indigo.Core.PackageTest\Indigo.Core.PackageTest.csproj", "{794CB478-EA07-4065-AAD6-C45F7054170E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indigo.Core.PackageTest.Test", "Indigo.Core.PackageTest.Test\Indigo.Core.PackageTest.Test.csproj", "{E2FC194C-0F27-4B33-9F55-A0D405096C78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{794CB478-EA07-4065-AAD6-C45F7054170E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{794CB478-EA07-4065-AAD6-C45F7054170E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{794CB478-EA07-4065-AAD6-C45F7054170E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{794CB478-EA07-4065-AAD6-C45F7054170E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2FC194C-0F27-4B33-9F55-A0D405096C78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2FC194C-0F27-4B33-9F55-A0D405096C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2FC194C-0F27-4B33-9F55-A0D405096C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2FC194C-0F27-4B33-9F55-A0D405096C78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
