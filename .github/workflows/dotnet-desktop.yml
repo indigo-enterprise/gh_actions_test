@@ -57,7 +57,7 @@ jobs:
       run: dotnet pack ${{ env.Project_Path }} -c Release --output ./nupkgs /p:PackageVersion=${{ env.NuGet_Package_Version }}
 
     - name: Folder content
-      run: ls
+      run: cd nupkgs && ls
 
     - name: Push to NuGet
       # run: dotnet nuget push --api-key AzureArtifacts ./nupkgs/*.nupkg
