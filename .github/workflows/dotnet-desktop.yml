@@ -33,6 +33,8 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
+      env: 
+        NUGET_AUTH_TOKEN: 5gtCxdaaGI0YrgIOuEv5Mc98BqTYXcbv252ayCx4TiKXaMh92dYtJQQJ99BBACAAAAADYMjaAAASAZDO1KRf # ${{ secrets.AZURE_DEVOPS_TOKEN }} 
 
     - name: Install NuGet Credential Provider
       run: |
@@ -60,6 +62,8 @@ jobs:
       run: dotnet nuget push ./nupkgs/*.nupkg --source ${{ env.NuGet_Artifact_URL }} --api-key ${{ env.NUGET_API_KEY }} --skip-duplicate
 
 
+
+      # 5gtCxdaaGI0YrgIOuEv5Mc98BqTYXcbv252ayCx4TiKXaMh92dYtJQQJ99BBACAAAAADYMjaAAASAZDO1KRf
         # dotnet build Indigo.Core.PackageTest.sln -c Release --no-restore
         # dotnet pack "Indigo.Core.PackageTest/Indigo.Core.PackageTest.csproj" -c Release --output ./nupkgs /p:PackageVersion=0.0.1
         # dotnet nuget push ./nupkgs/*.nupkg --source https://pkgs.dev.azure.com/IndigoVie/_packaging/IndigoVie/nuget/v3/index.json --api-key az --skip-duplicate
