@@ -21,7 +21,7 @@ jobs:
       Project_Path: Indigo.Core.PackageTest/Indigo.Core.PackageTest.csproj
       NuGet_Package_Version: 0.0.1
       NuGet_Artifact_URL: https://pkgs.dev.azure.com/IndigoVie/Infinity/_packaging/InfinityNugetFeed/nuget/v3/index.json
-      NUGET_API_KEY: myaApiKey # ${{ secrets.NUGET_API_KEY }}
+      NUGET_API_KEY: az # ${{ secrets.NUGET_API_KEY }}
 
     steps:
     - name: Checkout
@@ -47,7 +47,7 @@ jobs:
       run: dotnet pack ${{ env.Project_Path }} -c Release --output ./nupkgs /p:PackageVersion=${{ env.NuGet_Package_Version }}
 
     - name: Push to NuGet
-      run: dotnet nuget push ./nupkgs/*.nupkg --source ${{ env.NuGet_Artifact_URL }} --api-key ${{ env.NUGET_API_KEY }}
+      run: dotnet nuget push ./nupkgs/*.nupkg --source ${{ env.NuGet_Artifact_URL }} --api-key ${{ env.NUGET_API_KEY }} --skip-duplicate
 
 # name: .NET Core Desktop
 
