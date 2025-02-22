@@ -36,12 +36,12 @@ jobs:
       env: 
         NUGET_AUTH_TOKEN: 5gtCxdaaGI0YrgIOuEv5Mc98BqTYXcbv252ayCx4TiKXaMh92dYtJQQJ99BBACAAAAADYMjaAAASAZDO1KRf # ${{ secrets.AZURE_DEVOPS_TOKEN }} 
 
-    - name: Install NuGet Credential Provider
-      run: |
-        Invoke-WebRequest -Uri https://github.com/microsoft/artifacts-credprovider/blob/master/helpers/installcredprovider.ps1 -OutFile install-artifacts-credprovider.ps1
-        Install-Module -Name PowerShellGet -Force -AllowClobber
-        Install-Script -Name Install-VstsNuGetCredentialProvider -Force
-        Install-VstsNuGetCredentialProvider -AddNetfx
+    # - name: Install NuGet Credential Provider
+    #   run: |
+    #     Invoke-WebRequest -Uri https://github.com/microsoft/artifacts-credprovider/blob/master/helpers/installcredprovider.ps1 -OutFile install-artifacts-credprovider.ps1
+    #     Install-Module -Name PowerShellGet -Force -AllowClobber
+    #     Install-Script -Name Install-VstsNuGetCredentialProvider -Force
+    #     Install-VstsNuGetCredentialProvider -AddNetfx
 
     - name: Restore dependencies
       run: dotnet restore ${{ env.Solution_Name }}
