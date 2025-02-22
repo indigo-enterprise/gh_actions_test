@@ -34,6 +34,13 @@ jobs:
       with:
         dotnet-version: 9.0.x
 
+    - name: Install NuGet Credential Provider
+      run: |
+        Invoke-WebRequest -Uri https://aka.ms/install-artifacts-credprovider.ps1 -OutFile install-artifacts-credprovider.ps1
+        Install-Module -Name PowerShellGet -Force -AllowClobber
+        Install-Script -Name Install-VstsNuGetCredentialProvider -Force
+        Install-VstsNuGetCredentialProvider -AddNetfx
+
     - name: Restore dependencies
       run: dotnet restore ${{ env.Solution_Name }}
 
@@ -54,7 +61,8 @@ jobs:
 
 
         # dotnet build Indigo.Core.PackageTest.sln -c Release --no-restore
-        # dotnet pack Indigo.Core.PackageTest/Indigo.Core.PackageTest.csproj -c Release --output ./nupkgs /p:PackageVersion=0.0.1
+        # dotnet pack "Indigo.Core.PackageTest/Indigo.Core.PackageTest.csproj" -c Release --output ./nupkgs /p:PackageVersion=0.0.1
+        # dotnet nuget push ./nupkgs/*.nupkg --source https://pkgs.dev.azure.com/IndigoVie/_packaging/IndigoVie/nuget/v3/index.json --api-key az --skip-duplicate
 # name: .NET Core Desktop
 
 # on:
