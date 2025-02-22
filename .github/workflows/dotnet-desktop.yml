@@ -21,7 +21,7 @@ jobs:
       Project_Path: Indigo.Core.PackageTest/Indigo.Core.PackageTest.csproj
       NuGet_Package_Version: 0.0.1
       AZURE_ARTIFACTS_FEED_URL: https://pkgs.dev.azure.com/IndigoVie/_packaging/IndigoVie/nuget/v3/index.json
-      NUGET_API_KEY: az # ${{ secrets.NUGET_API_KEY }}
+      NUGET_API_KEY: 5gtCxdaaGI0YrgIOuEv5Mc98BqTYXcbv252ayCx4TiKXaMh92dYtJQQJ99BBACAAAAADYMjaAAASAZDO1KRf # ${{ secrets.NUGET_API_KEY }}
 
     steps:
     - name: Checkout
@@ -35,7 +35,7 @@ jobs:
         dotnet-version: 9.0.x
         source-url: ${{ env.AZURE_ARTIFACTS_FEED_URL }}
       env: 
-        NUGET_AUTH_TOKEN: 5gtCxdaaGI0YrgIOuEv5Mc98BqTYXcbv252ayCx4TiKXaMh92dYtJQQJ99BBACAAAAADYMjaAAASAZDO1KRf # ${{ secrets.AZURE_DEVOPS_TOKEN }} 
+        NUGET_AUTH_TOKEN: ${{ env.NUGET_API_KEY }} # ${{ secrets.AZURE_DEVOPS_TOKEN }} 
 
     # - name: Install NuGet Credential Provider
     #   run: |
@@ -60,8 +60,8 @@ jobs:
       run: ls
 
     - name: Push to NuGet
-      run: dotnet nuget push --api-key AzureArtifacts ./nupkgs/*.nupkg
-      # run: dotnet nuget push ./nupkgs/*.nupkg --source ${{ env.NuGet_Artifact_URL }} --api-key ${{ env.NUGET_API_KEY }} --skip-duplicate
+      # run: dotnet nuget push --api-key AzureArtifacts ./nupkgs/*.nupkg
+      run: dotnet nuget push ./nupkgs/*.nupkg --source ${{ env.AZURE_ARTIFACTS_FEED_URL }} --api-key ${{ env.NUGET_API_KEY }} --skip-duplicate
 
 
 
