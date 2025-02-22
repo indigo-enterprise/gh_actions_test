@@ -20,7 +20,7 @@ jobs:
       Test_Project_Path: Indigo.Core.PackageTest.Test/Indigo.Core.PackageTest.Test.csproj                # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       Project_Path: Indigo.Core.PackageTest/Indigo.Core.PackageTest.csproj
       NuGet_Package_Version: 0.0.1
-      NuGet_Artifact_URL: https://pkgs.dev.azure.com/IndigoVie/Infinity/_packaging/InfinityNugetFeed/nuget/v3/index.json
+      NuGet_Artifact_URL: https://pkgs.dev.azure.com/IndigoVie/_packaging/IndigoVie/nuget/v3/index.json # https://pkgs.dev.azure.com/IndigoVie/Infinity/_packaging/InfinityNugetFeed/nuget/v3/index.json
       NUGET_API_KEY: az # ${{ secrets.NUGET_API_KEY }}
 
     steps:
