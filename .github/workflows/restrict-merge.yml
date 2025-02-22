@@ -1,0 +1,18 @@
+name: Restrict Merge to Master
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  validate-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        run: |
+          SOURCE_BRANCH="${{ github.head_ref }}"
+          if [[ ! "$SOURCE_BRANCH" =~ ^release/[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "❌ Only branches matching 'release/x.y.z' can be merged into master."
+            exit 1
+          fi

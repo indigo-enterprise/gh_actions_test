@@ -1,0 +1,12 @@
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\bin\Release\net9.0\Indigo.Core.PackageTest.deps.json
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\bin\Release\net9.0\Indigo.Core.PackageTest.dll
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\bin\Release\net9.0\Indigo.Core.PackageTest.pdb
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Release\net9.0\Indigo.Core.PackageTest.GeneratedMSBuildEditorConfig.editorconfig
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Release\net9.0\Indigo.Core.PackageTest.AssemblyInfoInputs.cache
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Release\net9.0\Indigo.Core.PackageTest.AssemblyInfo.cs
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Release\net9.0\Indigo.Core.PackageTest.csproj.CoreCompileInputs.cache
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Release\net9.0\Indigo.Core.PackageTest.sourcelink.json
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Release\net9.0\Indigo.Core.PackageTest.dll
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Release\net9.0\refint\Indigo.Core.PackageTest.dll
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Release\net9.0\Indigo.Core.PackageTest.pdb
+D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\obj\Release\net9.0\ref\Indigo.Core.PackageTest.dll

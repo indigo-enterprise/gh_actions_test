@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Indigo.Core.PackageTest</id>
+    <version>1.0.0</version>
+    <authors>Indigo.Core.PackageTest</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="5ede64f200ae871744cd7cca876e4b27cf146354" />
+    <dependencies>
+      <group targetFramework="net9.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\Infinity\gh_actions_test\Indigo.Core.PackageTest\bin\Debug\net9.0\Indigo.Core.PackageTest.dll" target="lib\net9.0\Indigo.Core.PackageTest.dll" />
+  </files>
+</package>
