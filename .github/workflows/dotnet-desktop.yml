@@ -26,7 +26,7 @@ jobs:
             exit 1
           fi
 
-          
+
   unit-test:
     needs: validate-branch-name
     runs-on: windows-latest
@@ -35,19 +35,11 @@ jobs:
       Solution_Name: Indigo.Core.PackageTest.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: Indigo.Core.PackageTest.Test/Indigo.Core.PackageTest.Test.csproj                # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       Project_Path: Indigo.Core.PackageTest/Indigo.Core.PackageTest.csproj
-      NuGet_Package_Version: 0.0.1
+      NuGet_Package_Version: 0.0.2
       AZURE_ARTIFACTS_FEED_URL: https://pkgs.dev.azure.com/IndigoVie/Infinity/_packaging/InfinityNugetFeed/nuget/v3/index.json
       NUGET_API_KEY: 5gtCxdaaGI0YrgIOuEv5Mc98BqTYXcbv252ayCx4TiKXaMh92dYtJQQJ99BBACAAAAADYMjaAAASAZDO1KRf # ${{ secrets.NUGET_API_KEY }}
 
     steps:
-
-    - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
-      uses: azure/login@v1
-      with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
-        enable-AzPSSession: true
 
     - name: Checkout
       uses: actions/checkout@v4
@@ -71,15 +63,25 @@ jobs:
     - name: Run unit tests
       run: dotnet test ${{ env.Test_Project_Path }} -c Release --no-build --verbosity normal
       
-    # - name: Pack the application
-    #   run: dotnet pack ${{ env.Project_Path }} -c Release --output ./nupkgs /p:PackageVersion=${{ env.NuGet_Package_Version }}
+    - name: Pack the application
+      run: dotnet pack ${{ env.Project_Path }} -c Release --output ./nupkgs /p:PackageVersion=${{ env.NuGet_Package_Version }}
 
-    # - name: Folder content
-    #   run: cd nupkgs && ls
+    - name: Folder content
+      run: cd nupkgs && ls
 
-    # - name: Push to NuGet
-    #   # run: dotnet nuget push --api-key AzureArtifacts ./nupkgs/*.nupkg
-    #   run: dotnet nuget push ./nupkgs/Indigo.Core.PackageTest.0.0.1.nupkg --source ${{ env.AZURE_ARTIFACTS_FEED_URL }} --api-key ${{ env.NUGET_API_KEY }} --skip-duplicate
+    - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
+      uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+        enable-AzPSSession: true
+
+    - name: Push to NuGet
+      # run: dotnet nuget push --api-key AzureArtifacts ./nupkgs/*.nupkg
+      # run: dotnet nuget push ./nupkgs/Indigo.Core.PackageTest.0.0.2.nupkg --source ${{ env.AZURE_ARTIFACTS_FEED_URL }} --api-key ${{ env.NUGET_API_KEY }} --skip-duplicate
+      run: dotnet nuget push "./nupkgs/Indigo.Core.PackageTest.0.0.2.nupkg" --source "AzureArtifacts" --skip-duplicate --api-key "AzureArtifacts"
+
 
 
 
