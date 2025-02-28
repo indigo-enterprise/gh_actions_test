@@ -80,7 +80,7 @@ jobs:
     - name: Push to NuGet
       # run: dotnet nuget push --api-key AzureArtifacts ./nupkgs/*.nupkg
       # run: dotnet nuget push ./nupkgs/Indigo.Core.PackageTest.0.0.2.nupkg --source ${{ env.AZURE_ARTIFACTS_FEED_URL }} --api-key ${{ env.NUGET_API_KEY }} --skip-duplicate
-      run: dotnet nuget push "./nupkgs/Indigo.Core.PackageTest.0.0.2.nupkg" --source "AzureArtifacts" --skip-duplicate --api-key "AzureArtifacts"
+      run: dotnet nuget push "./nupkgs/Indigo.Core.PackageTest.0.0.2.nupkg" --source ${{ env.AZURE_ARTIFACTS_FEED_URL }} --skip-duplicate --api-key "AzureArtifacts"
 
 
 
