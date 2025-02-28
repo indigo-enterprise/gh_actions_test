@@ -1,0 +1,56 @@
+name: Deploy to NuGet
+
+on:
+  push:
+    branches: [ "main" ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    env:
+      Solution_Name: Indigo.Core.PackageTest.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      Test_Project_Path: Indigo.Core.PackageTest.Test/Indigo.Core.PackageTest.Test.csproj                # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Project_Path: Indigo.Core.PackageTest/Indigo.Core.PackageTest.csproj
+      NuGet_Package_Version: 0.0.1
+      AZURE_ARTIFACTS_FEED_URL: https://pkgs.dev.azure.com/IndigoVie/Infinity/_packaging/InfinityNugetFeed/nuget/v3/index.json
+      NUGET_API_KEY: 5gtCxdaaGI0YrgIOuEv5Mc98BqTYXcbv252ayCx4TiKXaMh92dYtJQQJ99BBACAAAAADYMjaAAASAZDO1KRf # ${{ secrets.NUGET_API_KEY }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+        source-url: ${{ env.AZURE_ARTIFACTS_FEED_URL }}
+      env: 
+        NUGET_AUTH_TOKEN: ${{ env.NUGET_API_KEY }} # ${{ secrets.AZURE_DEVOPS_TOKEN }} 
+
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.Solution_Name }}
+
+    - name: Build solution
+      run: dotnet build ${{ env.Solution_Name }} -c Release --no-restore
+
+    - name: Run unit tests
+      run: dotnet test ${{ env.Test_Project_Path }} -c Release --no-build --verbosity normal
+      
+    - name: Pack the application
+      run: dotnet pack ${{ env.Project_Path }} -c Release --output ./nupkgs /p:PackageVersion=${{ env.NuGet_Package_Version }}
+
+    - name: Folder content
+      run: cd nupkgs && ls
+
+    - name: Push to NuGet
+      # run: dotnet nuget push --api-key AzureArtifacts ./nupkgs/*.nupkg
+      run: dotnet nuget push ./nupkgs/Indigo.Core.PackageTest.0.0.1.nupkg --source ${{ env.AZURE_ARTIFACTS_FEED_URL }} --api-key ${{ env.NUGET_API_KEY }} --skip-duplicate
+
